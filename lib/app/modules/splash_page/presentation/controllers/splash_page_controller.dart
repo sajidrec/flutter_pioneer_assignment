@@ -6,10 +6,11 @@ import 'package:flutter_pioneer_assignment/app/core/constants/app_keys.dart';
 import 'package:flutter_pioneer_assignment/app/core/errors/app_exceptions.dart';
 import 'package:flutter_pioneer_assignment/app/core/network/api_endpoints.dart';
 import 'package:flutter_pioneer_assignment/app/core/network/dio_client.dart';
-import 'package:flutter_pioneer_assignment/app/modules/splash_page/data/models/repo_list_model.dart';
 import 'package:flutter_pioneer_assignment/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../core/data/models/repo_list_model.dart';
 
 class SplashPageController extends GetxController {
   int loaderDots = 1;
