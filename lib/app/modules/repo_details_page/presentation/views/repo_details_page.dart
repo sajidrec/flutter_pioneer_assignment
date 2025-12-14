@@ -36,6 +36,21 @@ class RepoDetailsPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8.h),
+                Row(
+                  children: [
+                    Spacer(),
+                    Icon(Icons.star, color: AppColors.gold),
+                    Text(
+                      repoModel.stargazersCount.toString(),
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: AppColors.black.withValues(alpha: .85),
+                      ),
+                    ),
+                    Spacer(),
+                  ],
+                ),
+                SizedBox(height: 8.h),
                 Text(
                   "Last updated at ${DateFormat('MM-dd-yyyy HH:mm').format(DateTime.parse(repoModel.updatedAt ?? ""))}",
                   style: TextStyle(
@@ -44,7 +59,20 @@ class RepoDetailsPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8.h),
-                Text(repoModel.description ?? ""),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Description",
+                    style: TextStyle(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(repoModel.description ?? ""),
+                ),
               ],
             ),
           ),

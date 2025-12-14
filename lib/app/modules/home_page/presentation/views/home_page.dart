@@ -24,67 +24,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 16.h),
-              Row(
-                children: [
-                  Text(
-                    "Repositories",
-                    style: TextStyle(
-                      fontSize: 22.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        "Sort by",
-                        style: TextStyle(fontWeight: FontWeight.w500),
-                      ),
-
-                      GetBuilder<HomePageController>(
-                        builder: (controller) {
-                          return PopupMenuButton(
-                            color: AppColors.white,
-                            onSelected: (value) {
-                              controller.setSortedBy(value);
-                            },
-                            itemBuilder: (context) => [
-                              PopupMenuItem<String>(
-                                value: "Last update",
-                                child: Text("Last update"),
-                              ),
-                              PopupMenuItem<String>(
-                                value: "Stars",
-                                child: Text("Stars"),
-                              ),
-                            ],
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusGeometry.circular(
-                                  8.sp,
-                                ),
-                                border: Border.all(
-                                  color: AppColors.black.withValues(alpha: .2),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(4.sp),
-                                child: Row(
-                                  children: [
-                                    Text(controller.sortedBy),
-                                    Icon(Icons.keyboard_arrow_down),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              _buildHeaderSection(),
               SizedBox(height: 16.h),
               Expanded(
                 child: GetBuilder<HomePageController>(
@@ -111,6 +51,59 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Row _buildHeaderSection() {
+    return Row(
+      children: [
+        Text(
+          "Repositories",
+          style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
+        ),
+        Spacer(),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text("Sort by", style: TextStyle(fontWeight: FontWeight.w500)),
+
+            GetBuilder<HomePageController>(
+              builder: (controller) {
+                return PopupMenuButton(
+                  color: AppColors.white,
+                  onSelected: (value) {
+                    controller.setSortedBy(value);
+                  },
+                  itemBuilder: (context) => [
+                    PopupMenuItem<String>(
+                      value: "Last update",
+                      child: Text("Last update"),
+                    ),
+                    PopupMenuItem<String>(value: "Stars", child: Text("Stars")),
+                  ],
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadiusGeometry.circular(8.sp),
+                      border: Border.all(
+                        color: AppColors.black.withValues(alpha: .2),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(4.sp),
+                      child: Row(
+                        children: [
+                          Text(controller.sortedBy),
+                          Icon(Icons.keyboard_arrow_down),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 
