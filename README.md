@@ -1,16 +1,32 @@
-# flutter_pioneer_assignment
+# Flutter GitHub Repository Finder
 
-A new Flutter project.
+## Project Overview
 
-## Getting Started
+The **Flutter GitHub Repository Finder** is a mobile application built using Flutter that allows
+users to search GitHub for repositories related to **"Flutter"**. The app fetches a list of
+repositories using the GitHub API and displays the top 50 most popular repositories based on the
+number of stars. The app provides offline support, enabling users to browse previously fetched data
+even without an internet connection.
 
-This project is a starting point for a Flutter application.
+### Key Features:
 
-A few resources to get you started if this is your first Flutter project:
+- Fetch GitHub repositories using the keyword "Flutter".
+- Display a list of the top 50 most starred repositories.
+- Sort repositories by last updated date or star count.
+- Persistent data storage for offline browsing.
+- Detailed repository information with owner details.
+- Mobile and tablet responsive UI.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## How to Run the App
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sajidrec/flutter_pioneer_assignment.git
+
+2. **Install dependencies:**
+   ```bash
+   flutter pub get
+
+3. **Run the project**
+   ```bash
+   flutter run
