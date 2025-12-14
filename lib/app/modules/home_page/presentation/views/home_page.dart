@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "last updated : ${DateFormat.yMEd().format(DateTime.parse(controller.repoListModel.items?[index].updatedAt ?? ""))}",
+                      "last updated: ${DateFormat('MM-dd-yyyy HH:mm').format(DateTime.parse(controller.repoListModel.items?[index].updatedAt ?? ""))}",
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
