@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pioneer_assignment/app/core/constants/app_colors.dart';
+import 'package:flutter_pioneer_assignment/app/core/data/models/repo_model.dart';
 import 'package:flutter_pioneer_assignment/app/modules/home_page/presentation/controllers/home_page_controller.dart';
+import 'package:flutter_pioneer_assignment/app/routes/app_routes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -87,8 +91,15 @@ class HomePage extends StatelessWidget {
                   builder: (controller) {
                     return ListView.separated(
                       shrinkWrap: true,
-                      itemBuilder: (context, index) =>
-                          _buildRepoCard(controller, index),
+                      itemBuilder: (context, index) => _buildRepoCard(
+                        controller,
+                        index,
+                        RepoModel.fromJson(
+                          jsonDecode(
+                            jsonEncode(controller.repoListModel.items![index]),
+                          ),
+                        ),
+                      ),
                       separatorBuilder: (context, index) =>
                           SizedBox(height: 8.h),
                       itemCount: controller.repoListModel.items?.length ?? 0,
@@ -103,9 +114,15 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  InkWell _buildRepoCard(HomePageController controller, int index) {
+  InkWell _buildRepoCard(
+    HomePageController controller,
+    int index,
+    RepoModel? repoModel,
+  ) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(AppRoutes.repoDetailsRoute, arguments: repoModel!.toJson());
+      },
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.black.withValues(alpha: .2)),
