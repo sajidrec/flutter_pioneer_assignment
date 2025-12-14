@@ -23,10 +23,14 @@ even without an internet connection.
    ```bash
    git clone https://github.com/sajidrec/flutter_pioneer_assignment.git
 
-2. **Install dependencies:**
+2. **Change directory:**
+   ```bash
+   cd flutter_pioneer_assignment
+
+3. **Install dependencies:**
    ```bash
    flutter pub get
 
-3. **Run the project**
+4. **Run the project**
    ```bash
    flutter run
