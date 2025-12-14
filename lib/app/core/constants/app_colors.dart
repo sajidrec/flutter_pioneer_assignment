@@ -4,4 +4,6 @@ class AppColors {
   static Color red = Color(0xffff0000);
   static Color white = Color(0xffffffff);
   static Color green = Color(0xff00ff00);
+  static Color black = Color(0xff000000);
+  static Color gold = Color(0xffFFD700);
 }
